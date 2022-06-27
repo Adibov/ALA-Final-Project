@@ -56,17 +56,22 @@ class Game:
 
 if __name__ == "__main__":
 
-    cells = [[1, 0, 0, 0, 1],
-             [0, 1, 0, 1, 0],
-             [0, 0, 1, 0, 0],
-             [0, 1, 0, 1, 0],
-             [1, 0, 0, 0, 1],]
+    cells = numpy.array([
+        [1, 1, 0],
+        [1, 0, 0],
+        [0, 1, 0]
+    ])
+    # cells = numpy.array([[1, 0, 0, 0, 1],
+    #          [0, 1, 0, 1, 0],
+    #          [0, 0, 1, 0, 0],
+    #          [0, 1, 0, 1, 0],
+    #          [1, 0, 0, 0, 1],])
 
     screen = pygame.display.set_mode((len(cells) * TILE_WIDTH, len(cells) * TILE_HEIGHT))
     screen.fill((167, 219, 216))
     pygame.display.set_caption("Game")
 
-    game = Game(cells)
+    game = Game(cells.T)
     game.draw()
 
     clock = pygame.time.Clock()
